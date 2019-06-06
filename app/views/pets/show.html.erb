@@ -1,0 +1,19 @@
+
+
+<h1><% if flash[:message]%>
+<%=flash[:message]%>
+<%end%></h1>
+
+
+<h2><%=@pet.name%>'s Page</h2>
+Category :
+<%=@pet.category%>
+<br>
+Owner:
+<%=@pet.owner.full_name%>
+<br>
+
+
+<%=link_to "edit", edit_pet_path(@pet)%>
+
+<%=button_to "Delete Pet", {action: "destroy", id: @pet.id}, method: :delete, data: { confirm: "Are you sure?"}%>

@@ -1,0 +1,29 @@
+
+<h1><% if flash[:message]%>
+<%=flash[:message]%>
+<%end%></h1>
+
+
+
+<h2><%=@owner.full_name%>'s Page</h2>
+
+<br>
+Age :
+<%=@owner.age%>
+<br>
+Email :
+<%=@owner.email%>
+<br>
+Pets:
+<ul>
+ <%@owner.pets.each do |pet|%>
+    <li>
+      <%=pet.name%>
+    </li>
+  <%end%>
+</ul>
+<br>
+
+<%=link_to "edit", edit_owner_path(@owner)%>
+
+<%=button_to "Delete Owner", {action: "destroy", id: @owner.id}, method: :delete, data: { confirm: "Are you sure?"}%>

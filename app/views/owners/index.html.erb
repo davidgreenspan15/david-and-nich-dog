@@ -1,0 +1,11 @@
+
+<ul>
+
+
+<%@owners.each do |owner|%>
+<li>
+  <%=link_to owner.full_name, "/owners/#{owner.id}"%>
+</li>
+<%end%>
+
+</ul>
